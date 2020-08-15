@@ -20,7 +20,6 @@ interface Props {
 
 const NewsBoxItem: FC<Props> = (Props) => {
   const { tag, topic, title, translatedTitle, reply, date, view } = Props;
-  console.log(Props);
 
   const [tags, setTags] = useState<any>([]);
 
@@ -49,7 +48,7 @@ const NewsBoxItem: FC<Props> = (Props) => {
     setTags(tagMap);
   }, [tag]);
   return (
-    <div className="MenuBoxItem">
+    <div className="NewsBoxItem">
       <div className="contents">
         <div className="title">
           <LightText text={topic} />

@@ -1,32 +1,32 @@
-.MenuBoxItem {
+.NewsBoxItem {
   display: flex;
-  padding: 0.5em 1em;
+  padding: 0.2em 0em 0.5em 0.6em;
   transition: background 0.3s ease-in;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
-.MenuBoxItem:last-child {
+.NewsBoxItem:last-child {
   border-bottom: 0px;
 }
-.MenuBoxItem:active {
+.NewsBoxItem:active {
   background-color: rgba(0, 0, 0, 0.05);
   background-size: 100%;
   transition: background 0s;
 }
 
-.MenuBoxItem .contents {
+.NewsBoxItem .contents {
   display: flex;
   flex-direction: column;
   width: 85%;
 }
-.MenuBoxItem .contents .title span:first-child {
+.NewsBoxItem .contents .title span:first-child {
   color: rgba(0, 0, 0, 0.6);
   font-size: 0.7em;
 }
-.MenuBoxItem .contents .title {
+.NewsBoxItem .contents .title {
   font-size: 0.8em;
 }
 
-.MenuBoxItem .reply {
+.NewsBoxItem .reply {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,11 +34,11 @@
   margin-left: auto;
   width: 15%;
 }
-.MenuBoxItem .reply span:first-child {
+.NewsBoxItem .reply span:first-child {
   color: rgba(0, 0, 0, 0.5);
   font-size: 0.8em;
 }
-.MenuBoxItem .reply span:last-child {
+.NewsBoxItem .reply span:last-child {
   color: rgba(0, 0, 0, 0.7);
   font-size: 1.2em;
 }
@@ -86,4 +86,24 @@
 .etc {
   background-color: rgba(174, 168, 228, 0.774);
   color: black;
+}
+
+.NewsCountBox {
+  display: flex;
+  font-size: 0.7em;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 0em 0.5em;
+}
+.NewsCountBox span:first-child {
+  margin-left: auto;
+}
+
+.NewsPagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5em;
+}
+.NewsPagination a {
+  margin: 0em 0.2em;
 }

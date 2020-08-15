@@ -8,3 +8,21 @@
   margin-left: auto;
   cursor: pointer;
 }
+
+.PageButtonLink {
+  display: inline-block;
+}
+
+.PageButton {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-weight: 300;
+}
+
+.activePage {
+  border: 0px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-weight: 500;
+}
