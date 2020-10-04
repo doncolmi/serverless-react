@@ -1,0 +1,103 @@
+.MenuBox {
+  border-radius: 0.2em;
+  margin-bottom: 1em;
+}
+
+.MenuBoxTitle {
+  display: flex;
+  padding: 0.5em 0.5em;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.MenuBoxTitle .Name {
+  font-size: 0.8em;
+  display: flex;
+  margin-right: auto;
+}
+.MenuBoxTitle span {
+  margin-right: 0.3em;
+}
+.MenuBoxTitle .More {
+  font-weight: 200;
+  font-size: 0.7em;
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.MenuBoxItem {
+  display: flex;
+  padding: 0.5em 1em;
+  transition: background 0.3s ease-in;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+.MenuBoxItem:last-child {
+  border-bottom: 0px;
+}
+.MenuBoxItem:active {
+  background-color: rgba(0, 0, 0, 0.05);
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.MenuBoxItem .contents {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+}
+.MenuBoxItem .contents .title span:first-child {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.7em;
+}
+.MenuBoxItem .contents .title {
+  font-size: 0.8em;
+}
+
+.MenuBoxItem .reply {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  width: 15%;
+}
+.MenuBoxItem .reply span:first-child {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.8em;
+}
+.MenuBoxItem .reply span:last-child {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1.2em;
+}
+
+.tag {
+  display: flex;
+}
+.tag div {
+  margin-right: 0.2em;
+}
+.date {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.7em;
+  font-weight: 200;
+  margin-left: auto;
+}
+
+.tagItem {
+  font-weight: 300;
+  font-size: 0.5em;
+  padding: 0.2em 0.5em;
+  border-radius: 0.7em;
+}
+
+.press {
+  background-color: black;
+  color: white;
+}
+.status {
+  background-color: rgba(233, 76, 76, 0.795);
+  color: white;
+}
+.etc {
+  background-color: rgba(174, 168, 228, 0.774);
+  color: black;
+}

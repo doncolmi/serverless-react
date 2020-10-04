@@ -1,0 +1,9 @@
+.BoldText {
+  font-weight: 600;
+}
+.NormalText {
+  font-weight: 400;
+}
+.LightText {
+  font-weight: 200;
+}
