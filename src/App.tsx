@@ -1,15 +1,19 @@
 import React from "react";
 import "./App.css";
 
-import RecentMenu from "./systems/RecentMenu/RecentMenu";
+// import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
-import IconButton from "./components/common/Button/IconButton";
+import Header from "./systems/Header/Header";
 
 function App() {
   return (
     <div className="App">
-      <RecentMenu />
-      <IconButton icon="fas fa-plus" text="메뉴 추가하기"></IconButton>
+      <Header />
+      {/* <Router>
+        <Switch>
+          <Route exact path="/" component={Header} />
+        </Switch>
+      </Router> */}
     </div>
   );
 }

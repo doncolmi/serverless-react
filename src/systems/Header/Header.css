@@ -1,0 +1,14 @@
+.Header {
+  display: flex;
+  flex-direction: column;
+}
+.HeaderTitle {
+  margin: 0 auto;
+}
+.HeaderBar {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  box-sizing: border-box;
+  padding: 0.2em;
+}
