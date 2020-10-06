@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
-import "./MenuBox.css";
+import "./NewsBox.css";
 
 import NormalText from "../../common/Text/NormalText";
 import LightText from "../../common/Text/LightText";
 
-import MenuTag, { Types } from "./MenuTag";
+import MenuTag, { Types } from "../MenuBox/MenuTag";
 
 import { simpleDate } from "../../../util/Date/simpleDate";
 
@@ -15,10 +15,12 @@ interface Props {
   reply: string;
   date: string;
   translatedTitle: string;
+  view: number;
 }
 
-const MenuBoxItem: FC<Props> = (Props) => {
-  const { tag, topic, title, translatedTitle, reply, date } = Props;
+const NewsBoxItem: FC<Props> = (Props) => {
+  const { tag, topic, title, translatedTitle, reply, date, view } = Props;
+  console.log(Props);
 
   const [tags, setTags] = useState<any>([]);
 
@@ -28,13 +30,8 @@ const MenuBoxItem: FC<Props> = (Props) => {
     const tagMap = tagSplit.map((element: string) => {
       i++;
       if (i === 1) {
-        let type;
-        if (element === "BBC") type = Types.BBC;
-        else if (element === "Sky") type = Types.SKY;
-        else if (element === "Goal") type = Types.GOAL;
-        else type = Types.PRESS;
         return {
-          type: type,
+          type: Types.PRESS,
           text: element,
         };
       } else if (i === 2) {
@@ -64,6 +61,7 @@ const MenuBoxItem: FC<Props> = (Props) => {
             <MenuTag type={element.type} text={element.text} />
           ))}
           <span className="date">
+            <i className="fas fa-eye"></i> {view}&nbsp;
             <i className="far fa-clock"></i> {simpleDate(date)}
           </span>
         </div>
@@ -76,4 +74,4 @@ const MenuBoxItem: FC<Props> = (Props) => {
   );
 };
 
-export default MenuBoxItem;
+export default NewsBoxItem;

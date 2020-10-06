@@ -2,6 +2,9 @@ import React, { FC } from "react";
 import "./MenuBox.css";
 
 export enum Types {
+  GOAL = "goal",
+  SKY = "sky",
+  BBC = "bbc",
   PRESS = "press",
   STATUS = "status",
   ETC = "etc",

@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import HeaderButton from "../../components/constants/Button/HeaderButton";
 
 import KakaoLogin from "react-kakao-login";
+import axios from "axios";
 
 Modal.setAppElement("#root");
 
@@ -36,6 +37,15 @@ const LoginBtn: FC = () => {
   const closeModal = () => {
     setIsOpen(false);
   };
+
+  const onSuccess = async (result: any) => {
+    const url = `${process.env["REACT_APP_API_SERVER"]}/dev/v1/auth/login`;
+    const { access_token, refresh_token } = result.response;
+    const token = { Authorization: `Bearer ${access_token}` };
+    const response = await axios.get(url, { headers: token });
+    const { status, data } = response;
+  };
+
   return (
     <>
       <HeaderButton text="로그인" func={openModal} />
@@ -48,7 +58,7 @@ const LoginBtn: FC = () => {
       >
         <KakaoLogin
           jsKey="78e803b681072f1e2ddb92d5853fe088"
-          onSuccess={(result) => console.log(result)}
+          onSuccess={onSuccess}
           onFailure={(result) => console.log(result)}
           useDefaultStyle={true}
           getProfile={false}

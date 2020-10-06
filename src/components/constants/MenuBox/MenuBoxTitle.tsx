@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./MenuBox.css";
 
@@ -20,13 +19,11 @@ const MenuBoxTitle: FC<Props> = ({ title, icon }: Props) => {
         </span>
         <NormalText text={title} />
       </div>
-      <Router>
-        <div className="More">
-          <Link to="/">
-            <LightText text="더보기" />
-          </Link>
-        </div>
-      </Router>
+      <div className="More">
+        <Link to="/news">
+          <LightText text="더보기" />
+        </Link>
+      </div>
     </div>
   );
 };

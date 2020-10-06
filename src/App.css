@@ -4,7 +4,14 @@
 .App {
   width: 100%;
   margin: 0 auto;
-  padding: 0.1em 0em;
+  padding-top: 0.1em;
   border-radius: 0.2em;
   background-color: white;
+}
+footer {
+  font-size: 0.7em;
+  font-weight: 200;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.1em 0em;
 }

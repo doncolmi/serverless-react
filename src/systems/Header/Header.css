@@ -12,3 +12,17 @@
   box-sizing: border-box;
   padding: 0.2em;
 }
+
+.PageHeader {
+  display: flex;
+  flex-direction: column;
+  padding: 0.3em;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.PageHeader span:first-child {
+  font-size: 1.1em;
+}
+.PageHeader span:last-child {
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.6);
+}

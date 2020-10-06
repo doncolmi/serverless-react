@@ -3,6 +3,7 @@ import "./MenuBox.css";
 
 import MenuBoxTitle from "./MenuBoxTitle";
 import MenuBoxItem from "./MenuBoxItem";
+import { Link } from "react-router-dom";
 
 interface Props {
   data: Array<any>;
@@ -11,7 +12,9 @@ interface Props {
 const MenuBox: FC<Props> = ({ data }: Props) => {
   return (
     <div className="MenuBox">
-      <MenuBoxTitle icon="fas fa-globe-europe" title="전체 해외 뉴스" />
+      <Link to="/news" className="hideHref">
+        <MenuBoxTitle icon="fas fa-globe-europe" title="전체 해외 뉴스" />
+      </Link>
       {data.map((element) => (
         <MenuBoxItem
           tag={element.tag}
