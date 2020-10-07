@@ -11,7 +11,6 @@ interface Props {
 const NewsPagination: FC<Props> = ({ page, maxPage }: Props) => {
   const [start, setStart] = useState(1);
   const [end, setEnd] = useState(10);
-  console.log("maxPage : ", maxPage);
 
   function getArray(start: number, end: number): Array<number> {
     const array: Array<number> = [];

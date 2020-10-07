@@ -1,8 +1,11 @@
+.NewsLink {
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
 .NewsBoxItem {
   display: flex;
   padding: 0.2em 0em 0.5em 0.6em;
   transition: background 0.3s ease-in;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 .NewsBoxItem:last-child {
   border-bottom: 0px;
@@ -11,6 +14,10 @@
   background-color: rgba(0, 0, 0, 0.05);
   background-size: 100%;
   transition: background 0s;
+}
+
+.watchingNews {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .NewsBoxItem .contents {

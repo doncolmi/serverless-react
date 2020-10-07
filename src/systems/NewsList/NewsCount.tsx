@@ -5,7 +5,7 @@ import NewsCountBox from "../../components/constants/NewsBox/NewsCountBox";
 
 const NewsMenu: FC = () => {
   const [response, loading, error] = useGetRequest(
-    `${process.env["REACT_APP_API_SERVER"]}/dev/v1/news/cnt`
+    `${process.env["REACT_APP_API_SERVER"]}/v1/news/cnt`
   );
 
   if (loading) return <></>;

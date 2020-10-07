@@ -6,7 +6,7 @@ import MenuBox from "../../components/constants/MenuBox/MenuBox";
 
 const RecentMenu: FC = () => {
   const [response, loading, error] = useGetRequest(
-    `${process.env["REACT_APP_API_SERVER"]}/dev/v1/news/recent`
+    `${process.env["REACT_APP_API_SERVER"]}/v1/news/recent`
   );
 
   if (loading) return <></>;

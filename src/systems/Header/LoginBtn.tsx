@@ -39,7 +39,7 @@ const LoginBtn: FC = () => {
   };
 
   const onSuccess = async (result: any) => {
-    // const url = `${process.env["REACT_APP_API_SERVER"]}/dev/v1/auth/login`;
+    // const url = `${process.env["REACT_APP_API_SERVER"]}/v1/auth/login`;
     // const { access_token, refresh_token } = result.response;
     // const token = { Authorization: `Bearer ${access_token}` };
     // const response = await axios.get(url, { headers: token });

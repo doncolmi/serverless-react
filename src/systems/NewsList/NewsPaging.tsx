@@ -13,7 +13,6 @@ const NewsPaging: FC<Props> = ({ page, maxPage }: Props) => {
   pageNum = +page;
   pageNum++;
 
-  console.log("하하", maxPage);
   return <NewsPagination page={pageNum} maxPage={parseInt("" + maxPage)} />;
 };
 

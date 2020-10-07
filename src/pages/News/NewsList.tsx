@@ -2,19 +2,18 @@ import React, { FC, useEffect } from "react";
 import { parse } from "query-string";
 import { useLocation } from "react-router";
 
-import { useGetRequest } from "../hooks/useGetRequest";
+import { useGetRequest } from "../../hooks/useGetRequest";
 
-import PageHeader from "../systems/Header/PageHeader";
-import NewsList from "../systems/NewsList/NewsList";
-import NewsPaging from "../systems/NewsList/NewsPaging";
+import PageHeader from "../../systems/Header/PageHeader";
+import NewsList from "../../systems/NewsList/NewsList";
+import NewsPaging from "../../systems/NewsList/NewsPaging";
 
 const News: FC = () => {
   let { page } = parse(useLocation().search);
   useEffect(() => {}, [page]);
   const [response, loading, error] = useGetRequest(
-    `${process.env["REACT_APP_API_SERVER"]}/dev/v1/news/cnt`
+    `${process.env["REACT_APP_API_SERVER"]}/v1/news/cnt`
   );
-  console.log(response);
 
   if (loading) return <></>;
   if (error) return <div>error!</div>;
