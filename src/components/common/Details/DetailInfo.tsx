@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import "./Detail.css";
 
 import LightText from "../Text/LightText";
-import NormalText from "../Text/NormalText";
 
 interface Props {
   view: number;

@@ -61,7 +61,11 @@ const MenuBoxItem: FC<Props> = (Props) => {
         </div>
         <div className="tag">
           {tags.map((element: any) => (
-            <MenuTag type={element.type} text={element.text} />
+            <MenuTag
+              type={element.type}
+              text={element.text}
+              key={Math.random()}
+            />
           ))}
           <span className="date">
             <i className="far fa-clock"></i> {simpleDate(date)}

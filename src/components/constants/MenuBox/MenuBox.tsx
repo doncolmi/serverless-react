@@ -23,6 +23,7 @@ const MenuBox: FC<Props> = ({ data }: Props) => {
           date={element.date}
           title={element.title}
           translatedTitle={element.translatedTitle}
+          key={Math.random()}
         />
       ))}
     </div>

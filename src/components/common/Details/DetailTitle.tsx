@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import "./Detail.css";
 
-import BoldText from "../Text/BoldText";
 import LightText from "../Text/LightText";
 import NormalText from "../Text/NormalText";
 

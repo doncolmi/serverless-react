@@ -22,6 +22,7 @@ const NewsBox: FC<Props> = ({ data, page }: Props) => {
           title={element.title}
           translatedTitle={element.translatedTitle}
           page={page}
+          key={Math.random()}
         />
       ))}
     </div>

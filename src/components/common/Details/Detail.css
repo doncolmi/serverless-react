@@ -8,12 +8,16 @@
   font-size: 0.8em;
   color: rgba(0, 0, 0, 0.7);
 }
+.DetailTitle .NormalText {
+  font-size: 0.9em;
+}
 
 .DetailInfo {
   display: flex;
   font-size: 0.7em;
   padding: 0em 0.5em;
   color: rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 .left {
   margin-right: auto;
@@ -22,10 +26,27 @@
   margin-left: auto;
 }
 .DetailLink {
-  margin-top: 0.5em;
+  margin-top: 1.2em;
   font-size: 0.7em;
   padding-left: 1em;
 }
 .DetailLink .href {
   text-decoration: underline;
+}
+
+.DetailReplyReq {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid lightgray;
+  padding: 1em 0em;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.DetailReplyReq .icon {
+  font-size: 3.2em;
+}
+
+.DetailReplyReq .LightText {
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.7);
 }

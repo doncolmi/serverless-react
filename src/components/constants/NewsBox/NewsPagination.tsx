@@ -45,7 +45,12 @@ const NewsPagination: FC<Props> = ({ page, maxPage }: Props) => {
   return (
     <div className="NewsPagination">
       {getArray(start, end).map((element: any) => (
-        <PageButton num={element} isNow={element === page} href="/news" />
+        <PageButton
+          num={element}
+          isNow={element === page}
+          href="/news"
+          key={Math.random()}
+        />
       ))}
     </div>
   );

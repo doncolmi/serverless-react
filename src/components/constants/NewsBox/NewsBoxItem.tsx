@@ -78,7 +78,11 @@ const NewsBoxItem: FC<Props> = (Props) => {
           </div>
           <div className="tag">
             {tags.map((element: any) => (
-              <MenuTag type={element.type} text={element.text} />
+              <MenuTag
+                type={element.type}
+                text={element.text}
+                key={Math.random()}
+              />
             ))}
             <span className="date">
               <i className="fas fa-eye"></i> {view}&nbsp;
