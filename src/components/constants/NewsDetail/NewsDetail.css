@@ -16,3 +16,20 @@
 .marginDiv {
   margin-bottom: 1em;
 }
+
+.DetailReplyReq {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid lightgray;
+  padding: 1em 0em;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.DetailReplyReq .icon {
+  font-size: 3.2em;
+}
+
+.DetailReplyReq .LightText {
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.7);
+}
