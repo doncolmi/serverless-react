@@ -1,9 +1,25 @@
 import React, { FC } from "react";
 import "./NewsReply.css";
+import { Types } from "./NewsReply";
 
-const NewsReplySelect: FC = () => {
-  // todo: 여기부터 합시다!!
-  return <></>;
+interface Props {
+  setType: Function;
+}
+
+const NewsReplySelect: FC<Props> = ({ setType }: Props) => {
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setType(event.target.value);
+  };
+  return (
+    <select onChange={handleChange} className="NewsReplySelect">
+      <option value={Types.DEFAULT} selected>
+        일반
+      </option>
+      <option value={Types.TITLE}>제목 수정 건의</option>
+      <option value={Types.LINK}>관련 링크 추가</option>
+      <option value={Types.FAKE}>가짜 뉴스 건의</option>
+    </select>
+  );
 };
 
 export default NewsReplySelect;

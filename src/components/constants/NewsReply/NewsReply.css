@@ -1,0 +1,19 @@
+.NewsReply {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+.NewsReplySelect {
+  width: 100%;
+  margin-bottom: 0.3em;
+  padding: 0.3em 1.3em 0.3em 0.4em;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.NewsReplyTitleInput {
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  border: 1px solid lightgray;
+  border-bottom: 0px;
+}

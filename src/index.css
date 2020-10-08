@@ -1,32 +1,32 @@
 @font-face {
   font-family: "NotoSansKR";
   font-weight: 600;
-  src: url(./font/NotoSansKR-Black.otf) format("truetype");
+  src: url(/font/NotoSansKR-Black.otf) format("truetype");
 }
 @font-face {
   font-family: "NotoSansKR";
   font-weight: 500;
-  src: url(./font/NotoSansKR-Bold.otf) format("truetype");
+  src: url(/font/NotoSansKR-Bold.otf) format("truetype");
 }
 @font-face {
   font-family: "NotoSansKR";
   font-weight: 400;
-  src: url(./font/NotoSansKR-Medium.otf) format("truetype");
+  src: url(/font/NotoSansKR-Medium.otf) format("truetype");
 }
 @font-face {
   font-family: "NotoSansKR";
   font-weight: 300;
-  src: url(./font/NotoSansKR-Regular.otf) format("truetype");
+  src: url(/font/NotoSansKR-Regular.otf) format("truetype");
 }
 @font-face {
   font-family: "NotoSansKR";
   font-weight: 200;
-  src: url(./font/NotoSansKR-Light.otf) format("truetype");
+  src: url(/font/NotoSansKR-Light.otf) format("truetype");
 }
 @font-face {
   font-family: "NotoSansKR";
   font-weight: 100;
-  src: url(./font/NotoSansKR-Thin.otf) format("truetype");
+  src: url(/font/NotoSansKR-Thin.otf) format("truetype");
 }
 
 html,
@@ -52,6 +52,16 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+textarea {
+  font-family: "NotoSansKR";
+  font-weight: 200;
+}
+
+input {
+  font-family: "NotoSansKR";
+  font-weight: 200;
 }
 
 .hideHref {

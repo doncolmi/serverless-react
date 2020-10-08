@@ -26,3 +26,13 @@
   font-size: 0.8em;
   color: rgba(0, 0, 0, 0.6);
 }
+
+.nickName {
+  display: flex;
+  align-items: center;
+  font-size: 0.7em;
+  font-weight: 200;
+}
+.nickName span {
+  font-weight: 400;
+}

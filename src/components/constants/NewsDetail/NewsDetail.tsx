@@ -7,7 +7,10 @@ import DetailLink from "../../common/Details/DetailLink";
 import NewsDetailReplyReq from "./NewsDetailReplyReq";
 import NewsReqBtn from "./NewsReqBtn";
 
-import Reply from "../../common/Reply/Reply";
+import NewsReply from "../NewsReply/NewsReply";
+
+import { useSelector } from "react-redux";
+import { RootState } from "../../../modules";
 
 interface Props {
   news: any;
@@ -15,7 +18,8 @@ interface Props {
 
 const NewsDetail: FC<Props> = ({ news }: Props) => {
   const [isView, setIsView] = useState(false);
-  console.log(isView);
+
+  const state = useSelector((state: RootState) => state.user);
 
   return (
     <>
@@ -32,7 +36,7 @@ const NewsDetail: FC<Props> = ({ news }: Props) => {
       ) : (
         <NewsDetailReplyReq reply={news.reply} setIsView={setIsView} />
       )}
-      <Reply />
+      {state.isLogin ? <NewsReply newsId={news.id} /> : <></>}
       <div className="marginDiv" />
     </>
   );
