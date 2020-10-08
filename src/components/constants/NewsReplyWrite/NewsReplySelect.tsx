@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./NewsReply.css";
-import { Types } from "./NewsReply";
+import { Types } from "./NewsReplyWrite";
 
 interface Props {
   setType: Function;
@@ -17,7 +17,6 @@ const NewsReplySelect: FC<Props> = ({ setType }: Props) => {
       </option>
       <option value={Types.TITLE}>제목 수정 건의</option>
       <option value={Types.LINK}>관련 링크 추가</option>
-      <option value={Types.FAKE}>가짜 뉴스 건의</option>
     </select>
   );
 };

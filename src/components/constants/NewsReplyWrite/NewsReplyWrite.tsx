@@ -8,13 +8,13 @@ import { RootState } from "../../../modules";
 
 import NewsReplySelect from "./NewsReplySelect";
 import NewsReplyTitle from "./NewsReplyTitle";
-import Reply from "../../common/Reply/Reply";
+import NewsReplyLink from "./NewsReplyLink";
+import Reply from "../../common/ReplyWrite/ReplyWrite";
 
 export enum Types {
   DEFAULT = "default",
   TITLE = "title",
   LINK = "link",
-  FAKE = "fake",
 }
 
 interface DefaultReply {
@@ -26,15 +26,17 @@ interface DefaultReply {
 
 interface Props {
   newsId: string;
+  setReply: Function;
+  reply: number;
 }
-const NewsReply: FC<Props> = ({ newsId }: Props) => {
+
+const NewsReplyWrite: FC<Props> = ({ newsId, reply, setReply }: Props) => {
   const [value, setValue] = useState("");
   const [type, setType] = useState<Types>(Types.DEFAULT);
 
   const { uuid } = useSelector((state: RootState) => state.user);
 
   async function saveReply() {
-    console.log("클릭클릭");
     const replyData: DefaultReply = {
       userUuid: uuid,
       type: Types.DEFAULT,
@@ -42,8 +44,10 @@ const NewsReply: FC<Props> = ({ newsId }: Props) => {
       newsId: newsId,
     };
     const url = `${process.env["REACT_APP_API_SERVER"]}/v1/news/reply`;
-    const save = await axios.post(url, JSON.stringify(replyData));
-    console.log(save);
+    await setValue("");
+    await axios.post(url, JSON.stringify(replyData));
+    await setType(Types.DEFAULT);
+    await setReply(reply + 1);
   }
 
   return (
@@ -52,15 +56,31 @@ const NewsReply: FC<Props> = ({ newsId }: Props) => {
       {type === Types.DEFAULT && (
         <Reply
           setValue={setValue}
-          submit={saveReply}
+          clickFunc={saveReply}
+          value={value}
           activate={value.length > 0}
         />
       )}
-      {type === Types.TITLE && <NewsReplyTitle />}
-      {type === Types.LINK && <></>}
-      {type === Types.FAKE && <></>}
+      {type === Types.TITLE && (
+        <NewsReplyTitle
+          uuid={uuid}
+          newsId={newsId}
+          setType={setType}
+          setReply={setReply}
+          reply={reply}
+        />
+      )}
+      {type === Types.LINK && (
+        <NewsReplyLink
+          uuid={uuid}
+          newsId={newsId}
+          setType={setType}
+          setReply={setReply}
+          reply={reply}
+        />
+      )}
     </div>
   );
 };
 
-export default NewsReply;
+export default NewsReplyWrite;

@@ -1,22 +1,11 @@
 import React, { FC } from "react";
 import "./Reply.css";
 
-import ReplyForm from "./ReplyForm";
-import ReplySubmit from "./ReplySubmit";
-
-interface Props {
-  setValue: Function;
-  submit: Function;
-  activate: boolean;
-}
-
-const Reply: FC<Props> = ({ setValue, submit, activate }: Props) => {
-  return (
-    <div className="Reply">
-      <ReplyForm placeholder="댓글 테스트" setValue={setValue} rows={4} />
-      <ReplySubmit onClick={submit} active={activate} />
-    </div>
-  );
+const Reply: FC = () => {
+  // column으로 잡고 윗부분을 닉네임, 정보 등등...
+  // 두번째는 flex로 잡고 왼쪽은 추천, 비추천 할 수 있게
+  // 세번째는 답댓글을 위한 창으로 만들어 놓읍시다.
+  return <div className="Reply"></div>;
 };
 
 export default Reply;

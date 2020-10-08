@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import "./Reply.css";
+import "./ReplyWrite.css";
 
 interface Props {}
 
@@ -7,9 +7,10 @@ interface Props {
   placeholder: string;
   rows: number;
   setValue: Function;
+  value: any;
 }
 
-const ReplyForm: FC<Props> = ({ setValue, placeholder, rows }: Props) => {
+const ReplyForm: FC<Props> = ({ setValue, placeholder, value }: Props) => {
   const handleChanges = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(event.target.value);
   };
@@ -19,6 +20,7 @@ const ReplyForm: FC<Props> = ({ setValue, placeholder, rows }: Props) => {
       placeholder={placeholder}
       className="ReplyForm"
       rows={1}
+      value={value}
       onChange={handleChanges}
     />
   );

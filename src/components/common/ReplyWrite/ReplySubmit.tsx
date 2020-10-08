@@ -1,15 +1,15 @@
 import React, { FC } from "react";
-import "./Reply.css";
+import "./ReplyWrite.css";
 
 interface Props {
   active: boolean;
-  onClick: Function;
+  clickFunc: Function;
 }
 
-const ReplySubmit: FC<Props> = ({ active, onClick }: Props) => {
+const ReplySubmit: FC<Props> = ({ active, clickFunc }: Props) => {
   if (active) {
     return (
-      <div className="ReplySubmit" onClick={onClick()}>
+      <div className="ReplySubmit" onClick={() => clickFunc()}>
         <span className="LightText">
           <i className="fas fa-pen-square"></i> 댓글 작성
         </span>
