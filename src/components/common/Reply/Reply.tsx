@@ -1,11 +1,54 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import "./Reply.css";
 
-const Reply: FC = () => {
-  // column으로 잡고 윗부분을 닉네임, 정보 등등...
-  // 두번째는 flex로 잡고 왼쪽은 추천, 비추천 할 수 있게
-  // 세번째는 답댓글을 위한 창으로 만들어 놓읍시다.
-  return <div className="Reply"></div>;
+import ReplyWriterInfo from "./components/ReplyWriterInfo";
+import ReplyContents from "./components/ReplyContents";
+import ReplyInReplyWrite from "./components/ReplyInReplyWrite";
+
+import ReplyInReplyReq from "./ReplyInReplyReq";
+
+interface Props {
+  reply: any;
+  rChildren: any;
+  tog: Function;
+}
+
+const Reply: FC<Props> = ({ reply, rChildren, tog }: Props) => {
+  const [isView, setIsView] = useState(false);
+  const [replyInReply, setReplyInReply] = useState(false);
+  const { name, createdDate, contents, score, id, newsId } = reply;
+
+  return (
+    <div className="Reply">
+      <ReplyWriterInfo
+        id={id}
+        date={createdDate}
+        name={name}
+        rir={replyInReply}
+        setRir={setReplyInReply}
+      />
+      <ReplyContents
+        id={id}
+        contents={contents}
+        score={score}
+        newsId={newsId}
+      />
+      {replyInReply && (
+        <ReplyInReplyWrite
+          id={id}
+          newsId={newsId}
+          setRir={setReplyInReply}
+          tog={tog}
+        />
+      )}
+      <ReplyInReplyReq
+        is={rChildren.length < 1}
+        replys={rChildren}
+        isView={isView}
+        setIsView={setIsView}
+      />
+    </div>
+  );
 };
 
 export default Reply;

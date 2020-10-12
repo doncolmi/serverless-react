@@ -1,2 +1,87 @@
 .Reply {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid lightgray;
+}
+
+.test {
+  border-bottom: 1px solid lightgray;
+}
+
+.WriterInfo {
+  display: flex;
+  font-size: 0.9em;
+  padding: 0.2em 1em 0.2em 0.5em;
+  align-items: center;
+}
+.WriterName {
+  font-weight: 400;
+}
+.WriteTime {
+  font-size: 0.8em;
+  font-weight: 200;
+  color: rgba(0, 0, 0, 0.7);
+}
+.replyBtns {
+  margin-left: auto;
+  font-size: 1.2em;
+}
+.WriterReport {
+  color: rgb(204, 5, 5);
+  margin-right: 0.3em;
+}
+
+.ReplyContents {
+  border-top: 1px solid lightgray;
+  display: flex;
+}
+.ReplyContents .contents {
+  width: 85%;
+  padding: 0.5em 0em 0.5em 0.5em;
+  font-weight: 200;
+  font-size: 0.9em;
+}
+.ReplyContents .updown {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3em;
+}
+.ReplyContents .score {
+  font-size: 0.8em;
+}
+
+.ReplyInReply {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.ReplyInReply:last-child {
+  border-bottom: 1px solid lightgray;
+}
+.ReplyInReply .WriterInfo {
+  border-top: 1px dashed lightgray;
+}
+.ReplyInReply .contents {
+  padding: 0em 0.5em 0.5em 1em;
+  font-size: 0.9em;
+  font-weight: 200;
+}
+.RIRIcon {
+  font-size: 0.9em;
+  transform: rotate(180deg);
+  margin: 0em 0.5em;
+}
+
+.isViewCheck {
+  font-size: 0.7em;
+  font-weight: 200;
+  padding: 0.2em 0.6em;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.ReplyInReplyWrite textarea {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.06);
 }

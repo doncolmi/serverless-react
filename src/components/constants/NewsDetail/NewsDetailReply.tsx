@@ -9,7 +9,7 @@ import { RootState } from "../../../modules";
 import NewsDetailReplyReq from "./NewsDetailReplyReq";
 import NewsReplyWrite from "../NewsReplyWrite/NewsReplyWrite";
 
-import Reply from "../../common/Reply/Reply";
+import ReplyBox from "../../constants/ReplyBox/ReplyBox";
 
 interface Props {
   newsId: string;
@@ -32,11 +32,14 @@ const NewsDetailReply: FC<Props> = ({ newsId }: Props) => {
   useEffect(() => {
     setIsView(state.isViewReply);
     getReply();
-  }, [reply, isView]);
+  }, [reply, isView, state.isViewReply]);
   return (
     <>
+      <div className="NewsDetailReplyTitle">
+        댓글 <span>· {reply}개</span>
+      </div>
       {isView && reply > 0 ? (
-        <Reply />
+        <ReplyBox newsId={newsId} reply={reply} />
       ) : (
         <NewsDetailReplyReq reply={reply} setIsView={setIsView} />
       )}

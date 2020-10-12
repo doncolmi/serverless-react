@@ -17,6 +17,21 @@
   margin-bottom: 1em;
 }
 
+.NewsDetailReplyTitle {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.2em 0.5em;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+.NewsDetailReplyTitle span {
+  margin-left: 0.3em;
+  font-size: 0.7em;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.5);
+}
+
 .DetailReplyReq {
   display: flex;
   flex-direction: column;
