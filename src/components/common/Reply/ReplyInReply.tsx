@@ -17,7 +17,12 @@ const ReplyInReply: FC<Props> = ({ reply }: Props) => {
         <span className="WriterName">{reply.name}</span>
         <span className="WriteTime"> · {simpleDate(reply.createdDate)} </span>
       </div>
+      <div className="contentsWrapper">
+        <span className="RIRIcon">
+          <i className="fas fa-reply"></i>
+        </span>
       <div className="contents">{reply.contents}</div>
+      </div>
     </div>
   );
 };

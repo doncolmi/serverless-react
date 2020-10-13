@@ -1,19 +1,21 @@
 import React, { FC } from "react";
 
 import ReplyUpdown from "./ReplyUpdown";
+import ReplyItem from "./ReplyItem";
+
+
 
 interface Props {
-  id: string;
-  contents: string;
-  score: number;
-  newsId: string;
+  reply: any;
 }
 
-const ReplyContents: FC<Props> = ({ id, contents, score, newsId }: Props) => {
+const ReplyContents: FC<Props> = ({ reply }: Props) => {
+  const { id, contents, score, newsId, type, item, userUuid } = reply;
   return (
     <div className="ReplyContents">
-      <div className="contents">{contents}</div>
-      <ReplyUpdown id={id} score={score} newsId={newsId} />
+        <ReplyItem type={type} item={item}/>
+        <div className="contents">{contents}</div>
+      <ReplyUpdown id={id} score={score} userId={userUuid}/>
     </div>
   );
 };

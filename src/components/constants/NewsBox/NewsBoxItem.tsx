@@ -11,31 +11,14 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 
 interface Props {
-  id: number;
-  tag: string;
-  topic: string;
-  title: string;
-  reply: string;
-  date: string;
-  translatedTitle: string;
-  view: number;
+  item: any;
   page: string;
 }
 
-const NewsBoxItem: FC<Props> = (Props) => {
+const NewsBoxItem: FC<Props> = ({ item, page }:Props) => {
   let { newsId } = useParams();
   if (!newsId) newsId = -1;
-  const {
-    id,
-    tag,
-    topic,
-    title,
-    translatedTitle,
-    reply,
-    date,
-    view,
-    page,
-  } = Props;
+  const { id, tag, topic, reply, view, date, title, translatedTitle } = item;
 
   const [tags, setTags] = useState<any>([]);
 
@@ -45,8 +28,13 @@ const NewsBoxItem: FC<Props> = (Props) => {
     const tagMap = tagSplit.map((element: string) => {
       i++;
       if (i === 1) {
+        let type;
+        if (element === "BBC") type = Types.BBC;
+        else if (element === "Sky") type = Types.SKY;
+        else if (element === "Goal") type = Types.GOAL;
+        else type = Types.PRESS;
         return {
-          type: Types.PRESS,
+          type: type,
           text: element,
         };
       } else if (i === 2) {

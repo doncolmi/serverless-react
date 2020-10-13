@@ -10,7 +10,7 @@ const DetailLink: FC<Props> = ({ href }: Props) => {
     <div className="DetailLink">
       <i className="fas fa-link"></i> :{" "}
       <a className="href hideHref" href={href}>
-        {href.slice(0, 35)}...(원본링크)
+        { href.length > 50 ? `${href.slice(0, 50)}...` : href}
       </a>
     </div>
   );

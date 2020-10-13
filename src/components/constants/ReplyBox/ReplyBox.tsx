@@ -4,6 +4,7 @@ import "./ReplyBox.css";
 import axios from "axios";
 
 import Reply from "../../common/Reply/Reply";
+import BestReplyBox from "./BestReplyBox";
 
 interface Props {
   newsId: string;
@@ -28,6 +29,8 @@ const ReplyBox: FC<Props> = ({ newsId, reply }: Props) => {
     }
   }
 
+
+
   async function toggle() {
     await setTog(!tog);
   }
@@ -49,6 +52,10 @@ const ReplyBox: FC<Props> = ({ newsId, reply }: Props) => {
   if (parentsReply) {
     return (
       <div className="test">
+        {parentsReply && <BestReplyBox replys={parentsReply} />}
+        <div className="NewsDetailReplyTitle">
+          댓글 <span>· {reply}개</span>
+        </div>
         {parentsReply.map((reply: any) => (
           <Reply reply={reply} rChildren={getChild(reply.id)} tog={toggle} />
         ))}

@@ -16,10 +16,12 @@ interface Props {
 }
 
 const NewsDetailReply: FC<Props> = ({ newsId }: Props) => {
-  const [reply, setReply] = useState(0);
-  const [isView, setIsView] = useState(false);
-
   const state = useSelector((state: RootState) => state.user);
+
+  const [reply, setReply] = useState(0);
+  const [isView, setIsView] = useState(state.isViewReply);
+
+  
 
   function getReply() {
     axios
@@ -30,14 +32,11 @@ const NewsDetailReply: FC<Props> = ({ newsId }: Props) => {
   }
 
   useEffect(() => {
-    setIsView(state.isViewReply);
     getReply();
-  }, [reply, isView, state.isViewReply]);
+  }, []);
   return (
     <>
-      <div className="NewsDetailReplyTitle">
-        댓글 <span>· {reply}개</span>
-      </div>
+      
       {isView && reply > 0 ? (
         <ReplyBox newsId={newsId} reply={reply} />
       ) : (

@@ -33,3 +33,12 @@
 .DetailLink .href {
   text-decoration: underline;
 }
+
+.NewsUserLinkSpan {
+  font-size: 0.7em;
+  font-weight: 200;
+  padding-left: 1em;
+}
+.NewsUserLink .DetailLink {
+  margin-top: 0em;
+}

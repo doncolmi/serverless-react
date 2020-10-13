@@ -12,17 +12,7 @@ const NewsBox: FC<Props> = ({ data, page }: Props) => {
   return (
     <div className="NewsBox">
       {data.map((element) => (
-        <NewsBoxItem
-          id={element.id}
-          tag={element.tag}
-          topic={element.topic}
-          reply={element.reply}
-          view={element.view}
-          date={element.date}
-          title={element.title}
-          translatedTitle={element.translatedTitle}
-          page={page}
-          key={Math.random()}
+        <NewsBoxItem item={element} page={page} key={Math.random()}
         />
       ))}
     </div>

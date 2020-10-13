@@ -8,15 +8,24 @@ import { RootState } from "../../../../modules";
 interface Props {
   id: string;
   score: number;
-  newsId: string;
+  userId: string;
 }
 
-const ReplyUpdown: FC<Props> = ({ id, score, newsId }: Props) => {
+const ReplyUpdown: FC<Props> = ({ id, score, userId }: Props) => {
   const [replyScore, setReplyScore] = useState<number>(score);
+  const [isSecond, setIsSecond] = useState(false);
 
-  const { uuid } = useSelector((state: RootState) => state.user);
+  const { uuid, isLogin } = useSelector((state: RootState) => state.user);
 
   async function doScore(type: boolean) {
+    if (!isLogin) {
+      alert("로그인 이후 추천/비추천이 가능합니다.");
+      return;
+    }
+    if (userId === uuid) {
+      alert("자신이 쓴 댓글엔 추천/비추천이 불가능합니다.");
+      return;
+    }
     const url = `${process.env["REACT_APP_API_SERVER"]}/v1/news/reply/score`;
     const data = {
       createdUuid: uuid,
@@ -32,6 +41,7 @@ const ReplyUpdown: FC<Props> = ({ id, score, newsId }: Props) => {
         await setReplyScore(replyScore - 1);
         alert("댓글을 비추천했습니다!");
       }
+      await setIsSecond(true);
     } catch (e) {
       alert("이미 추천 또는 비추천을 누른 댓글입니다.");
     }
@@ -44,8 +54,10 @@ const ReplyUpdown: FC<Props> = ({ id, score, newsId }: Props) => {
   }
 
   useEffect(() => {
-    getScore();
-  }, [replyScore]);
+    if (isSecond) {
+      getScore();
+    }
+  }, [isSecond, replyScore]);
 
   return (
     <div className="updown">

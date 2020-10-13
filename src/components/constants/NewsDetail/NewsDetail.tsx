@@ -4,6 +4,7 @@ import "./NewsDetail.css";
 import DetailTitle from "../../common/Details/DetailTitle";
 import DetailInfo from "../../common/Details/DetailInfo";
 import DetailLink from "../../common/Details/DetailLink";
+import NewsUserLink from "./NewsUserLink";
 import NewsReqBtn from "./NewsReqBtn";
 import NewsDetailReply from "./NewsDetailReply";
 
@@ -21,6 +22,7 @@ const NewsDetail: FC<Props> = ({ news }: Props) => {
       />
       <DetailInfo view={news.view} date={news.date} />
       <DetailLink href={news.href} />
+      <NewsUserLink newsId={news.id} />
       <NewsReqBtn />
       <NewsDetailReply newsId={news.id} />
       <div className="marginDiv" />
