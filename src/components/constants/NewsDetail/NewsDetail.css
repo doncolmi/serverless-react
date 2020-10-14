@@ -48,3 +48,13 @@
   font-size: 0.8em;
   color: rgba(0, 0, 0, 0.7);
 }
+
+.newsPic {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+.newsPic img {
+  max-width: 80%;
+}

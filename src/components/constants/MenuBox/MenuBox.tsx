@@ -16,15 +16,7 @@ const MenuBox: FC<Props> = ({ data }: Props) => {
         <MenuBoxTitle icon="fas fa-globe-europe" title="전체 해외 뉴스" />
       </Link>
       {data.map((element) => (
-        <MenuBoxItem
-          tag={element.tag}
-          topic={element.topic}
-          reply={element.reply}
-          date={element.date}
-          title={element.title}
-          translatedTitle={element.translatedTitle}
-          key={Math.random()}
-        />
+        <MenuBoxItem item={element} key={Math.random()} />
       ))}
     </div>
   );

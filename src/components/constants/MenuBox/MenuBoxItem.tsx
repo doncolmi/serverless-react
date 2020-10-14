@@ -7,18 +7,23 @@ import LightText from "../../common/Text/LightText";
 import MenuTag, { Types } from "./MenuTag";
 
 import { simpleDate } from "../../../util/Date/simpleDate";
+import { Link } from "react-router-dom";
 
 interface Props {
-  tag: string;
-  topic: string;
-  title: string;
-  reply: string;
-  date: string;
-  translatedTitle: string;
+  item: any;
 }
 
-const MenuBoxItem: FC<Props> = (Props) => {
-  const { tag, topic, title, translatedTitle, reply, date } = Props;
+const MenuBoxItem: FC<Props> = ({ item }: Props) => {
+  const {
+    tag,
+    topic,
+    title,
+    translatedTitle,
+    reply,
+    date,
+    id,
+    thumbnail,
+  } = item;
 
   const [tags, setTags] = useState<any>([]);
 
@@ -52,31 +57,33 @@ const MenuBoxItem: FC<Props> = (Props) => {
     setTags(tagMap);
   }, [tag]);
   return (
-    <div className="MenuBoxItem">
-      <div className="contents">
-        <div className="title">
-          <LightText text={topic} />
-          <br />
-          <NormalText text={translatedTitle ? translatedTitle : title} />
+    <Link to={`/news/${id}`} className="hideHref NewsLink">
+      <div className="MenuBoxItem">
+        <div className="contents">
+          <div className="title">
+            <LightText text={topic} />
+            <br />
+            <NormalText text={translatedTitle ? translatedTitle : title} />
+          </div>
+          <div className="tag">
+            {tags.map((element: any) => (
+              <MenuTag
+                type={element.type}
+                text={element.text}
+                key={Math.random()}
+              />
+            ))}
+            <span className="date">
+              <i className="far fa-clock"></i> {simpleDate(date)}
+            </span>
+          </div>
         </div>
-        <div className="tag">
-          {tags.map((element: any) => (
-            <MenuTag
-              type={element.type}
-              text={element.text}
-              key={Math.random()}
-            />
-          ))}
-          <span className="date">
-            <i className="far fa-clock"></i> {simpleDate(date)}
-          </span>
+        <div className="reply">
+          <LightText text="댓글" />
+          <NormalText text={reply} />
         </div>
       </div>
-      <div className="reply">
-        <LightText text="댓글" />
-        <NormalText text={reply} />
-      </div>
-    </div>
+    </Link>
   );
 };
 

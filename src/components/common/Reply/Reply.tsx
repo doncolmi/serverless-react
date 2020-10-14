@@ -2,12 +2,10 @@ import React, { FC, useState } from "react";
 import "./Reply.css";
 
 import ReplyWriterInfo from "./components/ReplyWriterInfo";
-import ReplyItem from "./components/ReplyItem";
 import ReplyContents from "./components/ReplyContents";
 import ReplyInReplyWrite from "./components/ReplyInReplyWrite";
 
 import ReplyInReplyReq from "./ReplyInReplyReq";
-
 
 interface Props {
   reply: any;
@@ -18,7 +16,7 @@ interface Props {
 const Reply: FC<Props> = ({ reply, rChildren, tog }: Props) => {
   const [isView, setIsView] = useState(false);
   const [replyInReply, setReplyInReply] = useState(false);
-  const {id, newsId, isSelection} = reply;
+  const { id, newsId, isSelection } = reply;
 
   return (
     <div className={`Reply ${isSelection && "selected"}`} id={id}>
