@@ -35,7 +35,7 @@ const MenuBoxItem: FC<Props> = ({ item }: Props) => {
       if (i === 1) {
         let type;
         if (element === "BBC") type = Types.BBC;
-        else if (element === "Sky") type = Types.SKY;
+        else if (element === "가디언") type = Types.SKY;
         else if (element === "Goal") type = Types.GOAL;
         else type = Types.PRESS;
         return {

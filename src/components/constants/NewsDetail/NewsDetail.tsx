@@ -4,6 +4,7 @@ import "./NewsDetail.css";
 import DetailTitle from "../../common/Details/DetailTitle";
 import DetailInfo from "../../common/Details/DetailInfo";
 import DetailLink from "../../common/Details/DetailLink";
+import NewsDetailPicture from "./NewsDetailPicture";
 import NewsUserLink from "./NewsUserLink";
 import NewsReqBtn from "./NewsReqBtn";
 import NewsDetailReply from "./NewsDetailReply";
@@ -20,16 +21,16 @@ const NewsDetail: FC<Props> = ({ news }: Props) => {
         title={news.translatedTitle ? news.translatedTitle : news.title}
         engTitle={news.translatedTitle ? news.title : ""}
       />
-
       <DetailInfo view={news.view} date={news.date} />
+
       <DetailLink href={news.href} />
       <NewsUserLink newsId={news.id} />
-      <div className="newsPic">
-        <img
-          src={`${process.env["REACT_APP_S3_SERVER"]}/${news.thumbnail}`}
-          alt="pic"
-        />
-      </div>
+
+      <NewsDetailPicture
+        thumbnail={news.thumbnail}
+        description={news.description}
+      />
+
       <NewsReqBtn />
       <NewsDetailReply newsId={news.id} />
       <div className="marginDiv" />

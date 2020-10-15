@@ -15,7 +15,7 @@ interface Props {
   page: string;
 }
 
-const NewsBoxItem: FC<Props> = ({ item, page }:Props) => {
+const NewsBoxItem: FC<Props> = ({ item, page }: Props) => {
   let { newsId } = useParams();
   if (!newsId) newsId = -1;
   const { id, tag, topic, reply, view, date, title, translatedTitle } = item;
@@ -30,7 +30,7 @@ const NewsBoxItem: FC<Props> = ({ item, page }:Props) => {
       if (i === 1) {
         let type;
         if (element === "BBC") type = Types.BBC;
-        else if (element === "Sky") type = Types.SKY;
+        else if (element === "가디언") type = Types.SKY;
         else if (element === "Goal") type = Types.GOAL;
         else type = Types.PRESS;
         return {
