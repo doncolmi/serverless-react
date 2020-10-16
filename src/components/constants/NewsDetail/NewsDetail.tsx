@@ -31,7 +31,7 @@ const NewsDetail: FC<Props> = ({ news }: Props) => {
         description={news.description}
       />
 
-      <NewsReqBtn />
+      <NewsReqBtn newsId={news.id} />
       <NewsDetailReply newsId={news.id} />
       <div className="marginDiv" />
     </>
