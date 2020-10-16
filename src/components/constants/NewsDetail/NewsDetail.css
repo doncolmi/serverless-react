@@ -64,8 +64,41 @@
   font-weight: 300;
   font-size: 0.8em;
   padding: 0em 0.5em;
+  text-align: center;
 }
 
 .NewsReqBtns {
   width: 100%;
+}
+
+.NewsDetailContents {
+  margin: 1em 0em;
+}
+.NewsDetailContents .header {
+  font-size: 1.2em;
+  padding: 0.8em 1em;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.NewsDetailContents .header p:first-child {
+  font-weight: 500;
+  padding: 0em;
+  margin: 0em;
+}
+.NewsDetailContents .header p.engSub {
+  font-size: 0.65em;
+}
+.NewsDetailContents .pContent {
+  font-size: 1em;
+  padding: 0.2em 0.6em;
+  font-weight: 200;
+}
+.NewsDetailContents .pContent p {
+  margin: 0.5em 0em;
+}
+.engSub {
+  padding: 0em 1em;
+  font-size: 0.65em;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 200;
+  text-align: center;
 }

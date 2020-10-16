@@ -5,14 +5,18 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../modules";
 
+import NewsDetailContents from "./NewsDetailContents";
+
 import IconButton from "../../common/Button/IconButton";
 
 interface Props {
   newsId: string;
+  tag: string;
+  href: string;
 }
 
-const NewsReqBtn: FC<Props> = ({ newsId }: Props) => {
-  const [score, setScore] = useState<number>(0);
+const NewsReqBtn: FC<Props> = ({ newsId, tag, href }: Props) => {
+  const [score, setScore] = useState<number>(30);
   const [contents, setContents] = useState<string>();
   const { uuid } = useSelector((state: RootState) => state.user);
 
@@ -33,8 +37,10 @@ const NewsReqBtn: FC<Props> = ({ newsId }: Props) => {
         `${process.env["REACT_APP_API_SERVER"]}/v1/news/${newsId}/score`,
         { uuid: uuid }
       );
-      setScore(score + 1);
+
       alert(data);
+      if (status === 202) requestCrawling(newsId, tag, href);
+      setScore(score + 1);
     } catch ({ response }) {
       if (response.status === 409) {
         alert("이미 투표한 글입니다.");
@@ -48,10 +54,30 @@ const NewsReqBtn: FC<Props> = ({ newsId }: Props) => {
     }
   }
 
+  async function requestCrawling(newsId: string, tag: string, href: string) {
+    if (tag.includes("Goal")) {
+      const {
+        status,
+      } = await axios.post(
+        `${process.env["REACT_APP_API_SERVER"]}/v1/news/${newsId}/goal`,
+        { url: href, tag: tag }
+      );
+
+      if (status === 200) alert("내용이 업데이트 되었습니다!");
+    } else {
+      console.log("ㅋㅋ;;");
+    }
+  }
+
   useEffect(() => {
     getContents(newsId);
-  }, [score, contents]);
+  }, [contents]);
 
+  if (contents) {
+    return <NewsDetailContents contents={contents} />;
+  } else if (score > 29) {
+    return <p>데이터 가져오는중!</p>;
+  }
   return (
     <div className="NewsReqBtn">
       <span className="LightText">

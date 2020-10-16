@@ -31,7 +31,7 @@ const NewsDetail: FC<Props> = ({ news }: Props) => {
         description={news.description}
       />
 
-      <NewsReqBtn newsId={news.id} />
+      <NewsReqBtn newsId={news.id} tag={news.tag} href={news.href} />
       <NewsDetailReply newsId={news.id} />
       <div className="marginDiv" />
     </>

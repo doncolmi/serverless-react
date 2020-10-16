@@ -22,10 +22,10 @@ const ReplyUpdown: FC<Props> = ({ id, score, userId }: Props) => {
       alert("로그인 이후 추천/비추천이 가능합니다.");
       return;
     }
-    if (userId === uuid) {
-      alert("자신이 쓴 댓글엔 추천/비추천이 불가능합니다.");
-      return;
-    }
+    // if (userId === uuid) {
+    //   alert("자신이 쓴 댓글엔 추천/비추천이 불가능합니다.");
+    //   return;
+    // }
     const url = `${process.env["REACT_APP_API_SERVER"]}/v1/news/reply/score`;
     const data = {
       createdUuid: uuid,
