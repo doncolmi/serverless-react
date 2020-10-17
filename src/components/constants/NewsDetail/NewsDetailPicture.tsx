@@ -1,11 +1,24 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 interface Props {
   thumbnail: string | null;
   description: string;
+  tag: string;
 }
 
-const NewsDetailPicture: FC<Props> = ({ thumbnail, description }: Props) => {
+const NewsDetailPicture: FC<Props> = ({
+  thumbnail,
+  description,
+  tag,
+}: Props) => {
+  const [desc, setDesc] = useState(description);
+
+  useEffect(() => {
+    if (tag.includes("본문등재")) {
+      setDesc("");
+    }
+  }, []);
+
   return (
     <div className="newsPic">
       {thumbnail && (
@@ -15,7 +28,7 @@ const NewsDetailPicture: FC<Props> = ({ thumbnail, description }: Props) => {
         />
       )}
 
-      <span>{description && description}</span>
+      <span>{desc}</span>
     </div>
   );
 };

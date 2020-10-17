@@ -77,7 +77,7 @@
 .NewsDetailContents .header {
   font-size: 1.2em;
   padding: 0.8em 1em;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.15);
 }
 .NewsDetailContents .header p:first-child {
   font-weight: 500;
@@ -86,6 +86,10 @@
 }
 .NewsDetailContents .header p.engSub {
   font-size: 0.65em;
+}
+.NewsDetailContents .header span {
+  font-size: 0.7em;
+  font-weight: 200;
 }
 .NewsDetailContents .pContent {
   font-size: 1em;
@@ -101,4 +105,10 @@
   color: rgba(0, 0, 0, 0.6);
   font-weight: 200;
   text-align: center;
+}
+
+.loading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

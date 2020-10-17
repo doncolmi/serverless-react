@@ -28,7 +28,7 @@ const ReplyUpdown: FC<Props> = ({ id, score, userId }: Props) => {
     // }
     const url = `${process.env["REACT_APP_API_SERVER"]}/v1/news/reply/score`;
     const data = {
-      createdUuid: uuid,
+      userUuid: uuid,
       newsReplyId: id,
       type: type,
     };

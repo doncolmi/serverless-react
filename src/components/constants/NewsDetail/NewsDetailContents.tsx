@@ -6,7 +6,6 @@ interface Props {
 }
 
 const NewsDetailContents: FC<Props> = ({ contents }: Props) => {
-  console.log(contents);
   return (
     <div
       className="NewsDetailContents"

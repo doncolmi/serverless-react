@@ -27,6 +27,7 @@ const NewsDetail: FC<Props> = ({ news }: Props) => {
       <NewsUserLink newsId={news.id} />
 
       <NewsDetailPicture
+        tag={news.tag}
         thumbnail={news.thumbnail}
         description={news.description}
       />

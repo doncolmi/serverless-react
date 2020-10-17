@@ -55,18 +55,20 @@ const NewsReqBtn: FC<Props> = ({ newsId, tag, href }: Props) => {
   }
 
   async function requestCrawling(newsId: string, tag: string, href: string) {
+    let url = "";
     if (tag.includes("Goal")) {
-      const {
-        status,
-      } = await axios.post(
-        `${process.env["REACT_APP_API_SERVER"]}/v1/news/${newsId}/goal`,
-        { url: href, tag: tag }
-      );
-
-      if (status === 200) alert("내용이 업데이트 되었습니다!");
+      url = `${process.env["REACT_APP_API_SERVER"]}/v1/news/${newsId}/goal`;
+    } else if (tag.includes("가디언")) {
+      url = `${process.env["REACT_APP_API_SERVER"]}/v1/news/${newsId}/guardian`;
+    } else if (tag.includes("BBC")) {
+      url = `${process.env["REACT_APP_API_SERVER"]}/v1/news/${newsId}/bbc`;
     } else {
-      console.log("ㅋㅋ;;");
+      console.log("ㅋㅋ");
+      return;
     }
+    const { status } = await axios.post(url, { url: href, tag: tag });
+    if (status === 200) alert("내용이 업데이트 되었습니다!");
+    setContents("");
   }
 
   useEffect(() => {
@@ -76,7 +78,11 @@ const NewsReqBtn: FC<Props> = ({ newsId, tag, href }: Props) => {
   if (contents) {
     return <NewsDetailContents contents={contents} />;
   } else if (score > 29) {
-    return <p>데이터 가져오는중!</p>;
+    return (
+      <div className="loading">
+        <img src="/loading.webp" alt="loading" />
+      </div>
+    );
   }
   return (
     <div className="NewsReqBtn">
