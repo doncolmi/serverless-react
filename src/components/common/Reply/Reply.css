@@ -26,20 +26,29 @@
   color: rgba(0, 0, 0, 0.7);
 }
 .replyBtns {
+  margin-right: auto;
+  padding-left: 0.5em;
+  font-size: 1.2em;
+}
+.replyBtns:last-child {
   margin-left: auto;
+  margin-right: 0;
   font-size: 1.2em;
 }
 .WriterReport {
   color: rgb(204, 5, 5);
   margin-right: 0.3em;
 }
+.modifyIcon {
+  margin-right: 0.5em;
+}
 
 .ReplyContents {
   display: flex;
   flex-direction: column;
-  padding: 0.5em 0.5em 0.5em 0.5em;
 }
 .ReplyContents .contents {
+  padding-left: 0.5em;
   font-weight: 200;
   font-size: 0.9em;
 }

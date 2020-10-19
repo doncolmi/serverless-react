@@ -21,22 +21,21 @@ const NewsDetailReply: FC<Props> = ({ newsId }: Props) => {
   const [reply, setReply] = useState(0);
   const [isView, setIsView] = useState(state.isViewReply);
 
-  
-
-  function getReply() {
-    axios
-      .get(`${process.env["REACT_APP_API_SERVER"]}/v1/news/${newsId}/reply/cnt`)
-      .then(({ data }) => {
-        setReply(data);
-      });
-  }
-
   useEffect(() => {
+    function getReply() {
+      axios
+        .get(
+          `${process.env["REACT_APP_API_SERVER"]}/v1/news/${newsId}/reply/cnt`
+        )
+        .then(({ data }) => {
+          setReply(data);
+        });
+    }
+
     getReply();
-  }, []);
+  }, [newsId]);
   return (
     <>
-      
       {isView && reply > 0 ? (
         <ReplyBox newsId={newsId} reply={reply} />
       ) : (

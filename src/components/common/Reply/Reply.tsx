@@ -14,6 +14,7 @@ interface Props {
 }
 
 const Reply: FC<Props> = ({ reply, rChildren, tog }: Props) => {
+  const [isModify, setIsModify] = useState(false);
   const [isView, setIsView] = useState(false);
   const [replyInReply, setReplyInReply] = useState(false);
   const { id, newsId, isSelection } = reply;
@@ -24,8 +25,16 @@ const Reply: FC<Props> = ({ reply, rChildren, tog }: Props) => {
         reply={reply}
         rir={replyInReply}
         setRir={setReplyInReply}
+        isModify={isModify}
+        setIsModify={setIsModify}
+        tog={tog}
       />
-      <ReplyContents reply={reply} />
+      <ReplyContents
+        reply={reply}
+        isModify={isModify}
+        setIsModify={setIsModify}
+        tog={tog}
+      />
       {replyInReply && (
         <ReplyInReplyWrite
           id={id}
