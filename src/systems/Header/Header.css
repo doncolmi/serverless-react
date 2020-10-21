@@ -36,3 +36,12 @@
 .nickName span {
   font-weight: 400;
 }
+
+.leftBox {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+}
+.leftBox a {
+  margin-right: 0.2em;
+}

@@ -81,6 +81,7 @@ const LoginBtn: FC = () => {
         uuid: data.uuid,
         name: data.name,
         createdDate: new Date(data.createdDate),
+        modifiedDate: new Date(data.modifiedDate),
         isChangeName: data.isChangeName,
         isViewReply: data.isViewReply,
       };
@@ -96,7 +97,9 @@ const LoginBtn: FC = () => {
 
   return (
     <>
-      <HeaderButton text="로그인" func={openModal} />
+      <div className="leftBox">
+        <HeaderButton text="로그인" func={openModal} />
+      </div>
       <Modal
         isOpen={isOpen}
         onAfterOpen={afterOpen}

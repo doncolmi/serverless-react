@@ -1,13 +1,14 @@
 import React, { FC } from "react";
 import "./Header.css";
 
+import axios from "axios";
+
 import HeaderButton from "../../components/constants/Button/HeaderButton";
 
 import { useCookies } from "react-cookie";
 
 import { useDispatch } from "react-redux";
-import { setUserInfo } from "../../modules/user";
-import { iUser } from "../../modules/interfaces/iUser";
+import { logoutUser } from "../../modules/user";
 
 interface Props {
   name: string;
@@ -20,24 +21,16 @@ const LoginedBtn: FC<Props> = ({ name }: Props) => {
 
   const dispatch = useDispatch();
 
-  const doSetUserInfo = (user: iUser) => {
-    dispatch(setUserInfo(user));
-  };
-
-  const logoutData: iUser = {
-    isLogin: false,
-    uuid: "",
-    name: "",
-    createdDate: new Date(),
-    isChangeName: false,
-    isViewReply: false,
+  const doLogoutUser = () => {
+    dispatch(logoutUser());
   };
 
   async function logout() {
     await removeCookie(`${process.env["REACT_APP_COOKIE_NAME"]}`, {
       path: "/",
     });
-    await doSetUserInfo(logoutData);
+    axios.defaults.headers.common["Authorization"] = null;
+    await doLogoutUser();
     window.location.reload();
   }
 
@@ -46,12 +39,10 @@ const LoginedBtn: FC<Props> = ({ name }: Props) => {
       <span className="nickName">
         <span>{name}</span> 님, 반갑습니다!
       </span>
-      <HeaderButton
-        text="로그아웃"
-        func={() => {
-          logout();
-        }}
-      />
+      <div className="leftBox">
+        <HeaderButton text="내 정보" href="/info" />
+        <HeaderButton text="로그아웃" func={() => logout()} />
+      </div>
     </>
   );
 };

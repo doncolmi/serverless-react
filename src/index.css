@@ -74,6 +74,16 @@ input {
 .hideHref:visited {
   color: black;
 }
+.hideHrefw {
+  color: white;
+  text-decoration: none;
+}
+.hideHrefw:hover {
+  color: white;
+}
+.hideHrefw:visited {
+  color: white;
+}
 
 .linkFlex {
   display: flex;

@@ -17,6 +17,7 @@ import Header from "./systems/Header/Header";
 import Main from "./pages/Main";
 import NewsList from "./pages/News/NewsList";
 import NewsDetail from "./pages/News/NewsDetail";
+import Info from "./pages/Info/Info";
 
 function App() {
   const JWT_EXPIRY_TIME = 24 * 3600 * 1000;
@@ -55,6 +56,7 @@ function App() {
           uuid: data.uuid,
           name: data.name,
           createdDate: new Date(data.createdDate),
+          modifiedDate: new Date(data.modifiedDate),
           isChangeName: data.isChangeName,
           isViewReply: data.isViewReply,
         };
@@ -79,6 +81,7 @@ function App() {
           <Route exact path="/" component={Main} />
           <Route exact path="/news" component={NewsList} />
           <Route exact path="/news/:newsId" component={NewsDetail} />
+          <Route exact path="/info" component={Info} />
         </Switch>
         <footer>
           <p>Copyright 뭐라쓸지고민중. All rights reserved.</p>
