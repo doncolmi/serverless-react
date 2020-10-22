@@ -22,7 +22,6 @@ interface DefaultReply {
   type: Types;
   contents: string;
   newsId: string;
-  name: string;
 }
 
 interface Props {
@@ -35,7 +34,7 @@ const NewsReplyWrite: FC<Props> = ({ newsId, reply, setReply }: Props) => {
   const [value, setValue] = useState("");
   const [type, setType] = useState<Types>(Types.DEFAULT);
 
-  const { uuid, name } = useSelector((state: RootState) => state.user);
+  const { uuid } = useSelector((state: RootState) => state.user);
 
   async function saveReply() {
     const replyData: DefaultReply = {
@@ -43,7 +42,6 @@ const NewsReplyWrite: FC<Props> = ({ newsId, reply, setReply }: Props) => {
       type: Types.DEFAULT,
       contents: value,
       newsId: newsId,
-      name: name,
     };
     const url = `${process.env["REACT_APP_API_SERVER"]}/v1/news/reply`;
     await setValue("");
@@ -71,7 +69,6 @@ const NewsReplyWrite: FC<Props> = ({ newsId, reply, setReply }: Props) => {
           setType={setType}
           setReply={setReply}
           reply={reply}
-          name={name}
         />
       )}
       {type === Types.LINK && (
@@ -81,7 +78,6 @@ const NewsReplyWrite: FC<Props> = ({ newsId, reply, setReply }: Props) => {
           setType={setType}
           setReply={setReply}
           reply={reply}
-          name={name}
         />
       )}
     </div>

@@ -21,7 +21,7 @@ interface Props {
 const ReplyWriterInfo: FC<Props> = (Props) => {
   const { reply, rir, setRir, tog, setIsModify, isModify } = Props;
   const { isLogin, uuid } = useSelector((state: RootState) => state.user);
-  const { name, createdDate, id, isSelection, userUuid } = reply;
+  const { name, createdDate, id, isSelection, user } = reply;
   return (
     <div className="WriterInfo">
       {isSelection ? (
@@ -31,9 +31,9 @@ const ReplyWriterInfo: FC<Props> = (Props) => {
       ) : (
         <></>
       )}
-      <span className="WriterName">{name}</span>
+      <span className="WriterName">{user.name}</span>
       <span className="WriteTime"> · {simpleDate(createdDate)}</span>
-      {userUuid === uuid && (
+      {user.uuid === uuid && (
         <div className="replyBtns">
           <ReplyCrudIcon
             isModify={isModify}

@@ -12,7 +12,6 @@ interface ReplyInReply {
   type: string;
   contents: string;
   newsId: string;
-  name: string;
   parents: string;
 }
 
@@ -24,7 +23,7 @@ interface Props {
 }
 const ReplyInReplyWrite: FC<Props> = ({ id, setRir, newsId, tog }: Props) => {
   const [value, setValue] = useState("");
-  const { uuid, name } = useSelector((state: RootState) => state.user);
+  const { uuid } = useSelector((state: RootState) => state.user);
 
   async function saveReply() {
     const replyData: ReplyInReply = {
@@ -32,7 +31,6 @@ const ReplyInReplyWrite: FC<Props> = ({ id, setRir, newsId, tog }: Props) => {
       type: "default",
       contents: value,
       newsId: newsId,
-      name: name,
       parents: id,
     };
     const url = `${process.env["REACT_APP_API_SERVER"]}/v1/news/reply`;

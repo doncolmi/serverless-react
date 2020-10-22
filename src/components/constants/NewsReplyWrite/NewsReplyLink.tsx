@@ -13,7 +13,6 @@ interface NewsReply {
   contents: string;
   newsId: string;
   item: string;
-  name: string;
 }
 interface Props {
   uuid: string;
@@ -21,7 +20,6 @@ interface Props {
   setType: Function;
   setReply: Function;
   reply: number;
-  name: string;
 }
 
 const NewsReplyLink: FC<Props> = ({
@@ -30,7 +28,6 @@ const NewsReplyLink: FC<Props> = ({
   setType,
   setReply,
   reply,
-  name,
 }: Props) => {
   const [item, setItem] = useState("");
   const [value, setValue] = useState("");
@@ -48,7 +45,6 @@ const NewsReplyLink: FC<Props> = ({
       contents: value,
       newsId: newsId,
       item: item,
-      name: name,
     };
     const url = `${process.env["REACT_APP_API_SERVER"]}/v1/news/reply`;
     await setValue("");
